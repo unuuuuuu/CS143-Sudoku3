@@ -8,6 +8,7 @@ public class SudokuBoard {
         board = new int[9][9];
     }
 
+    ////Creates the Sudoku board and gets the puzzle from the input file.
     public SudokuBoard(String fileName) {
         this();
         try {
@@ -30,6 +31,7 @@ public class SudokuBoard {
         }
     }
 
+    //Checks if the data, rows, columns, and mini squares are valid.
     public boolean isValid() {
         if (!checkNumbers())
             return false;
@@ -43,6 +45,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Checks the board to make sure it has only values between 1-9.
     private boolean checkNumbers() {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
@@ -55,6 +58,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Checks if there are duplicate values in each row.
     private boolean checkRow() {
         for (int r = 0; r < board.length; r++) {
             Set < Integer > set = new HashSet < > ();
@@ -72,6 +76,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Checks if there are any duplicate values in each column.
     private boolean checkCol() {
         for (int r = 0; r < board.length; r++) {
             Set < Integer > set = new HashSet < > ();
@@ -88,6 +93,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Checks if there are any duplicate values in each 3x3 box.
     private boolean checkBox() {
         for (int boxRow = 0; boxRow < 3; boxRow++) {
             for (int boxCol = 0; boxCol <
@@ -111,6 +117,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Checks if the board is valid and counts the occurrences the number came up.
     public boolean isSolved() {
         if (!isValid())
             return false;
@@ -141,6 +148,7 @@ public class SudokuBoard {
         return true;
     }
 
+    //Builds and returns the board.
     public String toString() {
         String result = "";
         String line = "+-------+-------+-------+\n";
