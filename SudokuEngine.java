@@ -3,9 +3,21 @@ import java.io.*;
 
 public class SudokuEngine {
    public static void main(String[] args) {
-      String fileName = "boards/data1.sdk";
+      String fileName = "very-fast-solve.sdk";
       SudokuBoard board = new SudokuBoard(fileName);  
       System.out.println(board); 
+      if (!board.isValid()) {
+         System.out.println("The board is invalid, it cannot be solved!");
+      } else if (board.isSolved()) {
+         System.out.println("The board is already solved!");
+      } else {
+         if (board.solve()) {
+            System.out.println("Board solved: ");
+            System.out.println(board);
+         } else {
+            System.out.println("Invalid board, no solution!");
+         }
+      }
    }
 }
 
