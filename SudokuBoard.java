@@ -172,4 +172,14 @@ public class SudokuBoard {
         result = result + line;
         return result;
     }
+
+    public boolean solve() {
+        if (!isValid()) 
+            return false;
+
+        if (isSolved())
+            return true;
+            
+        return false;
+    }
 }
