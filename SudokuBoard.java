@@ -179,7 +179,20 @@ public class SudokuBoard {
 
         if (isSolved())
             return true;
-            
+        
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == 0)
+                    for (int a = 1; a <= 9; a++) {
+                        board[i][j] = a;
+
+                        if (isValid() && solve())
+                            return true;
+                        board[i][j] = 0;
+                    }
+                    return false
+            }
+        }
         return false;
     }
 }
